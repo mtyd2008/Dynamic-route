@@ -23,24 +23,31 @@ const SingleProduct = () => {
 
   return(
     <>
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className='flex justify-center items-center my-5'>
+    <div className="card bg-base-100 image-full w-200 shadow-sm">
   <figure>
     <img
       src={data.thumbnail}
       alt="Shoes" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{data.title}</h2>
+    <h1 className="card-title font-bold">{data.title}</h1>
     <p>{data.description}</p>
-    <p>{data.brand}</p>
-    <p>{data.category}</p>
-    <p>{data.price}</p>
-    <p>{data.rating}</p>
-    <p>{data.warrantyInformation}</p>
+    <p><b>Brand:</b> {data.brand}</p>
+    <p><b>Category:</b> {data.category}</p>
+    <p><b>Price:</b> ${data.price}</p>
+    <p><b>Rating:</b> {data.rating}</p>
+    <p><b>Warranty:</b> {data.warrantyInformation}</p>
+    <p><b>ShippingInfo:</b>  {data.shippingInformation}</p>
+    <p><b>Sku:</b> {data.sku}</p>
+    <p><b>Stock:</b> {data.stock}</p>
     <div className="card-actions justify-end">
-      <h3>{data.availabilityStatus}</h3>
+    <button className={data.availabilityStatus === 'In Stock' ? "bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300" : "bg-red-600 text-white px-6 py-2 rounded-lg  transition duration-300"}>
+          Add to Cart
+        </button>
     </div>
   </div>
+</div>
 </div>
     </>
   )
